@@ -29,9 +29,7 @@ error=$((error + 1))
 # done
 
 cd "${root}"
-ls
 error=$((error + 1))
-make buildlinuxobjects && make buildlinuxarchive && make releasedynamiclinux
 if make buildlinuxobjects; then
   error=$((error + 1))
   if make buildlinuxarchive; then
