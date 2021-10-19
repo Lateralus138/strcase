@@ -44,6 +44,9 @@ echo -e "<- BREAKPOINT [$LINENO]"
       if make releasedynamiclinux; then
 echo -e "<- BREAKPOINT [$LINENO]"      
         printf '%s\n' "All MAKE tasks completed successfully."
+        echo
+        tree
+        echo
         cd "${root}"
       else exit $error; fi
     else exit $error; fi
