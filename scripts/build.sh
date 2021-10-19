@@ -4,6 +4,7 @@ error=0
 bld_lnx_rls='buildlinuxrelease.sh'
 # bld_dbn_rls='builddebianrelease.sh'
 error=$((error + 1))
+echo -e "<- HERE [$LINENO]"
 if [[ ! -f "$bld_lnx_rls" ]]; then
   exit $error
 fi
