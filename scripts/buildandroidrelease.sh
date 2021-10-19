@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 cd "$(dirname $0)"
 error=27
+error=$((error + 1))
+sudo apt-get install g++-arm-linux-gnueabihf
 base=".."
 root="${base}/linux"
 dr="release/android/static"
