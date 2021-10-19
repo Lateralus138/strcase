@@ -12,7 +12,7 @@ error=$((error + 1))
 error=$((error + 1))
 [[ ! -d "$source" ]] && exit $error
 error=$((error + 1))
-[[ ! -x "${source}/main.cpp" ]] && exit $error
+[[ ! -f "${source}/main.cpp" ]] && exit $error
 # error=$((error + 1))
 # [[ ! -d "$lib" ]] && exit $error
 # error=$((error + 1))
