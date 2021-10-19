@@ -28,7 +28,8 @@ if cp "${release}" "${bin}/${exe}"; then
   if rm -rf "${debian}/*"; then
     error=$((error + 1))
     if dpkg-deb -b "${debian}" "${root}/release/debian/${exe}.deb"; then
-      printf '%s\n' "Debian package created successfully." 
+      printf '%s\n' "Debian package created successfully."
+      cd "${root}"
     else exit $error; fi
   else exit $error; fi
 else exit $error; fi

@@ -26,5 +26,6 @@ if ./${bld_lnx_rls}; then
     if ./${bld_and_rls}; then
       printf '%s\n' "Android build successful."
       printf '%s\n' "All builds successful."
+    fi
   else exit $?; fi
 else exit $?; fi
