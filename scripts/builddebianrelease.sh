@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 cd "$(dirname $0)"
-error=11
+error=15
 exe=strcase
 root='..'
 debian="${root}/debian"

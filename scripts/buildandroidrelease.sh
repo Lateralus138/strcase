@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 cd "$(dirname $0)"
-error=22
+error=27
 base=".."
 root="${base}/linux"
 dr="release/android/static"

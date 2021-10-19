@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 cd "$(dirname $0)"
-error=2
+error=5
 base=".."
 root="${base}/linux"
 dr="release/linux/dynamic"
