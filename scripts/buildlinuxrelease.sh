@@ -6,6 +6,7 @@ root='..'
 source="${root}/src"
 lib="${source}/lib/linux"
 include="${source}/include"
+echo -e "<- BREAKPOINT [$LINENO]"
 # libs=( functions ProgramErrors pe )
 error=$((error + 1))
 [[ ! -d "$root" ]] && exit $error
