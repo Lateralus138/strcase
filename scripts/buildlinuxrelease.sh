@@ -3,10 +3,9 @@ cd "$(dirname $0)"
 error=1
 # error=2
 root='..'
-source="${root}/src"
+source="${root}/linux/src"
 lib="${source}/lib/linux"
 include="${source}/include"
-echo -e "<- BREAKPOINT [$LINENO]"
 # libs=( functions ProgramErrors pe )
 error=$((error + 1))
 [[ ! -d "$root" ]] && exit $error
