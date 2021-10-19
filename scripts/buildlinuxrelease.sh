@@ -30,13 +30,16 @@ error=$((error + 1))
 
 cd "${root}"
 error=$((error + 1))
-if make buildlinuxobjects; then
+if make createlibdirs; then
   error=$((error + 1))
-  if make buildlinuxarchive; then
+  if make buildlinuxobjects; then
     error=$((error + 1))
-    if make releasedynamiclinux; then
-      printf '%s\n' "All MAKE tasks completed successfully."
-      cd "${root}"
+    if make buildlinuxarchive; then
+      error=$((error + 1))
+      if make releasedynamiclinux; then
+        printf '%s\n' "All MAKE tasks completed successfully."
+        cd "${root}"
+      else exit $error; fi
     else exit $error; fi
   else exit $error; fi
 else exit $error; fi
