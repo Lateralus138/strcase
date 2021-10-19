@@ -368,13 +368,13 @@ createlibdirs: \
 	createmacoslibdir
 
 createlinuxlibdir:
-	$(call create_dir, LIBLINUX)
+	$(call create_dir, $(LIBLINUX))
 
 createandroidlibdir:
-	$(call create_dir, LIBANDROID)
+	$(call create_dir, $(LIBANDROID))
 
 createwindowslibdir:
-	$(call create_dir, LIBWINDOWS)
+	$(call create_dir, $(LIBWINDOWS))
 
 createmacoslibdir:
-	$(call create_dir, LIBMACOS)
+	$(call create_dir, $(LIBMACOS))
