@@ -29,14 +29,19 @@ error=$((error + 1))
 # done
 
 cd "${root}"
+echo -e "<- BREAKPOINT [$LINENO]"
 error=$((error + 1))
 if make createlibdirs; then
+echo -e "<- BREAKPOINT [$LINENO]"
   error=$((error + 1))
   if make buildlinuxobjects; then
+echo -e "<- BREAKPOINT [$LINENO]"  
     error=$((error + 1))
     if make buildlinuxarchive; then
+echo -e "<- BREAKPOINT [$LINENO]"    
       error=$((error + 1))
       if make releasedynamiclinux; then
+echo -e "<- BREAKPOINT [$LINENO]"      
         printf '%s\n' "All MAKE tasks completed successfully."
         cd "${root}"
       else exit $error; fi
