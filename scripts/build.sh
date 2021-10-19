@@ -8,6 +8,7 @@ echo -e "<- HERE [$LINENO]"
 if [[ ! -f "$bld_lnx_rls" ]]; then
   exit $error
 fi
+echo -e "<- HERE [$LINENO]"
 # error=$((error + 1))
 # if [[ ! -f "$bld_dbn_rls" ]]; then
 #   exit $error
