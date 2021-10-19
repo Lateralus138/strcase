@@ -1,52 +1,37 @@
 #!/usr/bin/env bash
 cd "$(dirname $0)"
-error=1
-# error=2
-root='../linux'
+error=2
+base=".."
+root="${base}/linux"
+dr="release/linux/dynamic"
+release="${base}/${dr}"
 source="${root}/src"
 lib="${source}/lib/linux"
 include="${source}/include"
-# libs=( functions ProgramErrors pe )
+error=$((error + 1))
+if [[ ! -d "$release" ]]; then
+  if ! mkdir -p "$release"; then
+    exit $error
+  fi
+fi
 error=$((error + 1))
 [[ ! -d "$root" ]] && exit $error
 error=$((error + 1))
 [[ ! -d "$source" ]] && exit $error
 error=$((error + 1))
 [[ ! -f "${source}/main.cpp" ]] && exit $error
-# error=$((error + 1))
-# [[ ! -d "$lib" ]] && exit $error
-# error=$((error + 1))
-# [[ ! -d "$include" ]] && exit $error
-# for libv in "${libs[@]}"; do
-#   error=$((error + 1))
-#   if [[ ! -f "${lib}/${libv}.o" ]]; then
-#     exit $error
-#   fi
-#   error=$((error + 1))
-#   if [[ ! -f "${include}/${libv}.h" ]]; then
-#     exit $error
-#   fi
-# done
-
 cd "${root}"
-tree
 error=$((error + 1))
 if make createlibdirs; then
-echo -e "<- BREAKPOINT [$LINENO]"
-tree
   error=$((error + 1))
   if make buildlinuxobjects; then
-echo -e "<- BREAKPOINT [$LINENO]"  
     error=$((error + 1))
     if make buildlinuxarchive; then
-echo -e "<- BREAKPOINT [$LINENO]"    
       error=$((error + 1))
       if make releasedynamiclinux; then
-echo -e "<- BREAKPOINT [$LINENO]"      
-        printf '%s\n' "All MAKE tasks completed successfully."
-        echo
-        tree
-        echo
+        if mv "${dr}/strcase" "${release}/strcase"; then
+          printf '%s\n' "All MAKE tasks completed successfully."
+        else exit $error; fi
         cd "${root}"
       else exit $error; fi
     else exit $error; fi

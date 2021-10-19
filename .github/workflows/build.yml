@@ -27,3 +27,4 @@ jobs:
           rm -rf release
         fi
         ./scripts/build.sh
+        tree -C

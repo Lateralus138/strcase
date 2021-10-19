@@ -1,0 +1,9 @@
+Package: strcase
+Version: 1.0.0
+Section: Utilities
+Priority: optional
+Architecture: amd64
+Essential: no
+Installed-Size: 216
+Maintainer: https://github.com/Lateralus138/strcase
+Description: Manipulate the case of strings from standard input or from a pipe

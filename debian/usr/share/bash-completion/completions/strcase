@@ -1,0 +1,10 @@
+strcase_list=(
+  -h --help
+  -u --upper
+  -i --insensitive
+  -l --lower
+  -p --phrases
+  -c --characters
+)
+complete -W "$(printf '%s\n' "${strcase_list[@]}")" strcase
+
