@@ -11,10 +11,10 @@ error=$((error + 1))
 [[ ! -d "$root" ]] && exit $error
 error=$((error + 1))
 [[ ! -d "$source" ]] && exit $error
-error=$((error + 1))
-[[ ! -d "$lib" ]] && exit $error
-error=$((error + 1))
-[[ ! -d "$include" ]] && exit $error
+# error=$((error + 1))
+# [[ ! -d "$lib" ]] && exit $error
+# error=$((error + 1))
+# [[ ! -d "$include" ]] && exit $error
 tree -C
 # for libv in "${libs[@]}"; do
 #   error=$((error + 1))
