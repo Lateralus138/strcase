@@ -29,7 +29,7 @@ error=$((error + 1))
 # done
 
 cd "${root}"
-echo -e "<- BREAKPOINT [$LINENO]"
+tree -C
 error=$((error + 1))
 if make createlibdirs; then
 echo -e "<- BREAKPOINT [$LINENO]"
