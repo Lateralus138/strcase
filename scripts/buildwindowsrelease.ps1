@@ -11,4 +11,4 @@ $error_++
 MSBuild /property:Configuration=Release /property:Platform=x86 || Exit $error_
 $error_++
 MSBuild /property:Configuration=Release /property:Platform=x64 || Exit $error_
-Tree /F "$this_path"
+Tree /F "$root"
