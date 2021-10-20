@@ -12,13 +12,14 @@ if (-not (Test-Path "$released" -PathType Container))
   $error_++
   New-Item -Type Directory -Name "$released"  || Exit $error_
 }
-Write-Host <- $MyInvocation.ScriptLineNumber
 cd "${root}"
 $error_++
 MSBuild /property:Configuration=Release /property:Platform=x86 || Exit $error_
 Tree /F "$root"
+Write-Host "<- $MyInvocation.ScriptLineNumber"
 $error_++
 Test-Path ".\Release\strcase.exe" -PathType Container || Exit $error_
+Write-Host "<- $MyInvocation.ScriptLineNumber"
 $error_++
 Move-Item -Path ".\Release\strcase.exe" "$released\strcase-x86.exe" -Force || Exit $error_
 $error_++
