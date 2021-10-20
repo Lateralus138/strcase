@@ -42,4 +42,4 @@ jobs:
     - uses: actions/checkout@v2
     - name: Make MacOs
       run: |
-        & ./scripts/buildmacosrelease.sh
+        ./scripts/buildmacosrelease.sh
