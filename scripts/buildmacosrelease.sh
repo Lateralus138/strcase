@@ -2,7 +2,7 @@
 cd "$(dirname $0)"
 error=47
 base=".."
-root="${base}/macos"
+root="${base}/linux"
 dr="release/macos/static"
 release="${base}/${dr}"
 source="${root}/src"
