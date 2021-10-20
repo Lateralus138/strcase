@@ -18,7 +18,7 @@ on:
 #       - '**.o'
 #       - '**.sln'
 #       - 'makefile'
-
+jobs:
   build_macos:
     name: Build MacOs
     runs-on: macos-latest

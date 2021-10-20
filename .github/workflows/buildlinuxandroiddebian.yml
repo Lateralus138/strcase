@@ -1,4 +1,4 @@
-name: Build Linux Debian And Android
+name: Build Linux Debian Android
 
 on:
   push:
