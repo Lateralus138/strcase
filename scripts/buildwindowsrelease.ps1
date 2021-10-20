@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 $error_ = 38
 $this_path = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
 $base = ".."
@@ -15,8 +14,6 @@ if (-not (Test-Path "$released" -PathType Container))
 cd "${root}"
 $error_++
 MSBuild /property:Configuration=Release /property:Platform=x86 || Exit $error_
-Tree /F "$root"
-Get-ChildItem -Recurse -Path "$released"
 $error_++
 Test-Path ".\Release\strcase.exe" -PathType Leaf || Exit $error_
 $error_++
@@ -25,5 +22,3 @@ $error_++
 MSBuild /property:Configuration=Release /property:Platform=x64 || Exit $error_
 $error_++
 Move-Item -Path ".\x64\Release\strcase.exe" -Destination "$released\strcase-x64.exe" -Force || Exit $error_
-Tree /F "$root"
-Tree /F "$base/release/windows"

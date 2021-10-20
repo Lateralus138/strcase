@@ -34,3 +34,12 @@ jobs:
     - name: Make Windows
       run: |
         & ./scripts/buildwindowsrelease.ps1
+
+  build_macos:
+    name: Build MacOs
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Make MacOs
+      run: |
+        & ./scripts/buildmacosrelease.sh
