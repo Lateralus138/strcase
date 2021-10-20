@@ -12,7 +12,7 @@ if (-not (Test-Path "$released" -PathType Container))
   $error_++
   New-Item -Type Directory -Name "$released"  || Exit $error_
 }
-Write-Host $MyInvocation.ScriptLineNumber
+Write-Host <- $MyInvocation.ScriptLineNumber
 cd "${root}"
 $error_++
 MSBuild /property:Configuration=Release /property:Platform=x86 || Exit $error_
