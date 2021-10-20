@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 $error_ = 38
 $this_path = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
+Write-Host "$this_path"
 $released = "$base\release\windows"
 cd "$this_path"
 $base = ".."
