@@ -3,7 +3,7 @@ cd "$(dirname $0)"
 error=47
 base=".."
 root="${base}/linux"
-dr="release/macos/static"
+dr="release/macos/dynamic"
 release="${base}/${dr}"
 source="${root}/src"
 lib="${source}/lib/macos"
@@ -28,7 +28,8 @@ if make createlibdirs; then
     error=$((error + 1))
     if make buildmacosarchive; then
       error=$((error + 1))
-      if make releasestaticmacos; then
+      if make releasedynamicmacos; then
+        error=$((error + 1))
         if mv "${dr}/strcase" "${release}/strcase"; then
           printf '%s\n' "All MAKE tasks completed successfully."
         else exit $error; fi
