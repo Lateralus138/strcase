@@ -26,14 +26,12 @@ on:
     - uses: actions/checkout@v2
       with:
         ref: ${{ github.event.client_payload.sha }}
-    - uses: r-lib/actions/setup-r@master
-    - uses: r-lib/actions/setup-pandoc@master
     - name: Make MacOs
       run: |
         ./scripts/buildmacosrelease.sh
-# git pull
-# git add .
-# git config --global user.name 'Lateralus138'
-# git config --global user.email 'Lateralus138@users.noreply.github.com'
-# git commit -am "Pushed new project files to master. - $(date)"
-# git push
+        git pull
+        git add .
+        git config --global user.name 'Lateralus138'
+        git config --global user.email 'Lateralus138@users.noreply.github.com'
+        git commit -am "Pushed new project files to master. - $(date)"
+        git push
