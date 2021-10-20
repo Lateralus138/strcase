@@ -17,11 +17,11 @@ on:
 
 jobs:
   build_linux:
-    name: Build Linux
+    name: Build Linux Debian And Android
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Make
+    - name: Make Linux and Android
       run: |
         ./scripts/build.sh
 
@@ -30,6 +30,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Make
+    - uses: microsoft/setup-msbuild@v1.0.2
+    - name: Make Windows
       run: |
         & ./scripts/buildwindowsrelease.ps1
