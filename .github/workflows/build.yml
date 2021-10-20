@@ -17,14 +17,19 @@ on:
 
 jobs:
   build_linux:
-    name: Build Project
+    name: Build Linux
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Make
       run: |
-        if [[ -d "release" ]]; then
-          rm -rf release
-        fi
         ./scripts/build.sh
-        tree
+
+  build_windows:
+    name: Build Windows
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Make
+      run: |
+        & ./scripts/buildwindowsrelease.ps1
