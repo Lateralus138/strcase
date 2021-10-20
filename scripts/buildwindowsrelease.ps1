@@ -16,10 +16,9 @@ cd "${root}"
 $error_++
 MSBuild /property:Configuration=Release /property:Platform=x86 || Exit $error_
 Tree /F "$root"
-
+Get-ChildItem -Recurse -Path "$released"
 $error_++
 Test-Path ".\Release\strcase.exe" -PathType Leaf || Exit $error_
-Get-ChildItem -Recurse -Path "$released"
 $error_++
 Move-Item -Path ".\Release\strcase.exe" -Destination "$released\strcase-x86.exe" -Force || Exit $error_
 $error_++
