@@ -17,4 +17,4 @@ makefile linguist-detectable=false
 *.yml linguist-detectable=false
 *.yaml linguist-detectable=false
 *.sln linguist-detectable=false
-*.ps1
+*.ps1 linguist-detectable=false
