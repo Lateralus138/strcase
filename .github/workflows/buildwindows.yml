@@ -32,6 +32,7 @@ on:
     - name: Make Windows
       run: |
         & ./scripts/buildwindowsrelease.ps1
+        git pull
         git add .
         git config --global user.name 'Lateralus138'
         git config --global user.email 'Lateralus138@users.noreply.github.com'
