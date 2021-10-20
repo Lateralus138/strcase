@@ -31,6 +31,15 @@ jobs:
     - name: Make MacOs
       run: |
         ./scripts/buildmacosrelease.sh
+        desktopgen_linux_md5_text='{\n\t"schemaVersion": 1,\n\t"color": "2E9778",\n\t"label": "desktopgen MD5",\n\t"message": "PLACEHOLDER",\n\t"labelColor": "1d1d1d",\n\t"style": "for-the-badge",\n\t"namedLogo": "linux"\n}'
+        if ! [[ -d "./docs/json" ]]; then
+          mkdir -p ./docs/json
+        fi
+        if ! [[ -f "./docs/json/desktopgen_linux_md5.json" ]]; then
+          touch ./docs/json/desktopgen_linux_md5.json
+        fi
+        echo -e "$desktopgen_linux_md5_text" > ./docs/json/desktopgen_linux_md5.json
+        sed -i "s/\"message\": \".*\"/\"message\": \"$(md5sum ./release/linux/dynamic/desktopgen | cut -d' ' -f 1)\"/g" docs/json/desktopgen_linux_md5.json
       # git add .
       # git config --global user.name 'Lateralus138'
       # git config --global user.email 'Lateralus138@users.noreply.github.com'
