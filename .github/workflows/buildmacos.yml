@@ -39,7 +39,7 @@ jobs:
           touch ./docs/json/desktopgen_linux_md5.json
         fi
         echo -e "$desktopgen_linux_md5_text" > ./docs/json/desktopgen_linux_md5.json
-        sed -i "s/\"message\": \".*\"/\"message\": \"$(md5sum ./release/linux/dynamic/desktopgen | cut -d' ' -f 1)\"/g" docs/json/desktopgen_linux_md5.json
+        sed -i "s/\"message\": \".*\"/\"message\": \"$(md5 -r ./release/linux/dynamic/desktopgen | cut -d' ' -f 1)\"/g" docs/json/desktopgen_linux_md5.json
       # git add .
       # git config --global user.name 'Lateralus138'
       # git config --global user.email 'Lateralus138@users.noreply.github.com'
