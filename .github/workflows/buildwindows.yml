@@ -1,4 +1,4 @@
-name: Build
+name: Build Windows
 
 on:
   repository_dispatch:
@@ -27,8 +27,8 @@ on:
       with:
         ref: ${{ github.event.client_payload.sha }}
     - uses: microsoft/setup-msbuild@v1.0.2
-    - uses: r-lib/actions/setup-r@master
-    - uses: r-lib/actions/setup-pandoc@master
+# - uses: r-lib/actions/setup-r@master
+# - uses: r-lib/actions/setup-pandoc@master
     - name: Make Windows
       run: |
         & ./scripts/buildwindowsrelease.ps1

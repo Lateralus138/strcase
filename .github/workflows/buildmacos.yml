@@ -1,4 +1,4 @@
-name: Build
+name: Build MacOas
 
 on:
   repository_dispatch:
