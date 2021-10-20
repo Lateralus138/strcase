@@ -31,7 +31,6 @@ jobs:
       run: |
         & ./scripts/buildwindowsrelease.ps1
         git add .
-        git pull
         git config --global user.name 'Lateralus138'
         git config --global user.email 'Lateralus138@users.noreply.github.com'
         git commit -am "Pushed new project files to master. - $(date)"
