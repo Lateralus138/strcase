@@ -30,7 +30,7 @@ if make createlibdirs; then
       error=$((error + 1))
       if make releasedynamicmacos; then
         error=$((error + 1))
-        if mv "${dr}/strcase" "${release}/strcase"; then
+        if mv "${dr}/strcase" "${release}/strcase.darwin"; then
           printf '%s\n' "All MAKE tasks completed successfully."
         else exit $error; fi
         cd "${root}"

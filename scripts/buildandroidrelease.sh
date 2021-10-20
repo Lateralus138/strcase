@@ -31,7 +31,7 @@ if make createlibdirs; then
     if make buildandroidarchive; then
       error=$((error + 1))
       if make releasestaticandroid; then
-        if mv "${dr}/strcase" "${release}/strcase"; then
+        if mv "${dr}/strcase" "${release}/strcase.android"; then
           printf '%s\n' "All MAKE tasks completed successfully."
         else exit $error; fi
         cd "${root}"

@@ -30,6 +30,15 @@ jobs:
       # git commit -am "Pushed new project files to master. - $(date)"
       # git push
 
+    - uses: ncipollo/release-action@v1
+      with:
+        allowUpdates: True
+        tag: 1.0.0
+        name: Stable Release
+        prerelease: False
+        artifacts: "./release/debian/strcase.deb,./release/linux/dynamic/strcase,./release/android/static/strcase.android"
+        token: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Trigger next workflow
       if: success()
       uses: peter-evans/repository-dispatch@v1

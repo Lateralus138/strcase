@@ -36,3 +36,11 @@ jobs:
       # git config --global user.email 'Lateralus138@users.noreply.github.com'
       # git commit -am "Pushed new project files to master. - $(date)"
       # git push
+    - uses: ncipollo/release-action@v1
+      with:
+        allowUpdates: True
+        tag: 1.0.0
+        name: Stable Release
+        prerelease: False
+        artifacts: "./release/macos/dynamic/strcase.darwin"
+        token: ${{ secrets.GITHUB_TOKEN }}
