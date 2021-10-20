@@ -15,6 +15,7 @@ if (-not (Test-Path "$released" -PathType Container))
 cd "${root}"
 $error_++
 MSBuild /property:Configuration=Release /property:Platform=x86 || Exit $error_
+Tree /F "$root"
 $error_++
 Move-Item -Path ".\Release\strcase.exe" "$released\strcase-x86.exe" -Force || Exit $error_
 $error_++
