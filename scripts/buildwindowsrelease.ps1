@@ -16,10 +16,10 @@ cd "${root}"
 $error_++
 MSBuild /property:Configuration=Release /property:Platform=x86 || Exit $error_
 $error_++
-Move-Item -Force -Path "Release\strcase.exe" "$released/strcase-x86.exe" || Exit $error_
+Move-Item -Path ".\Release\strcase.exe" "$released\strcase-x86.exe" -Force || Exit $error_
 $error_++
 MSBuild /property:Configuration=Release /property:Platform=x64 || Exit $error_
 $error_++
-Move-Item -Force -Path "x64\Release\strcase.exe" "$released/strcase-x64.exe" || Exit $error_
+Move-Item -Path ".\x64\Release\strcase.exe" "$released\strcase-x64.exe" -Force || Exit $error_
 Tree /F "$root"
 Tree /F "$base/release/windows"
