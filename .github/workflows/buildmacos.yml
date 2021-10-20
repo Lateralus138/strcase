@@ -1,0 +1,38 @@
+name: Build
+
+on:
+  repository_dispatch:
+    types: [trigger-workflow-3]
+
+# on:
+#   push:
+#     branches: [ master ]
+#   pull_request:
+#     branches: [ master ]
+
+# on:
+#   push:
+#     paths:
+#       - '**.cpp'
+#       - '**.h'
+#       - '**.o'
+#       - '**.sln'
+#       - 'makefile'
+
+  build_macos:
+    name: Build MacOs
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.client_payload.sha }}
+    - uses: r-lib/actions/setup-r@master
+    - uses: r-lib/actions/setup-pandoc@master
+    - name: Make MacOs
+      run: |
+        ./scripts/buildmacosrelease.sh
+        git add .
+        git config --global user.name 'Lateralus138'
+        git config --global user.email 'Lateralus138@users.noreply.github.com'
+        git commit -am "Pushed new project files to master. - $(date)"
+        git push
