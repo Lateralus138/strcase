@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 $error_ = 38
 $this_path = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
-Write-Host "$this_path"
+$base = ".."
 $released = "$base\release\windows"
 cd "$this_path"
-$base = ".."
 $root = "$base\windows"
 $error_++
 Test-Path "$root" -PathType Container || Exit $error_
